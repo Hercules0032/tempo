@@ -1,0 +1,159 @@
+@import 'tailwindcss';
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Outfit', system-ui, sans-serif;
+  color: #e7e9f3;
+  background: #05060d;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Animated aurora background blobs */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.aurora span {
+  position: absolute;
+  display: block;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.55;
+  animation: drift 18s ease-in-out infinite;
+}
+.aurora .a1 {
+  width: 480px;
+  height: 480px;
+  background: #7c3aed;
+  top: -120px;
+  left: -80px;
+}
+.aurora .a2 {
+  width: 520px;
+  height: 520px;
+  background: #2563eb;
+  bottom: -160px;
+  right: -100px;
+  animation-delay: -6s;
+}
+.aurora .a3 {
+  width: 360px;
+  height: 360px;
+  background: #db2777;
+  top: 40%;
+  left: 55%;
+  animation-delay: -12s;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(40px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-30px, 40px) scale(0.95);
+  }
+}
+
+/* Glass card */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.glass:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Gradient text */
+.grad-text {
+  background: linear-gradient(135deg, #c4b5fd 0%, #93c5fd 50%, #f0abfc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glow-btn {
+  box-shadow: 0 8px 30px -6px rgba(124, 58, 237, 0.6);
+}
+.glow-btn:hover {
+  box-shadow: 0 10px 38px -4px rgba(124, 58, 237, 0.85);
+}
+
+/* Custom scrollbar */
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+}
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease both;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* keep email html readable inside reader */
+.mail-body {
+  color: #cbd2e6;
+  line-height: 1.6;
+  word-break: break-word;
+}
+.mail-body a {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+.mail-body img {
+  max-width: 100%;
+  height: auto;
+}
